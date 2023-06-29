@@ -33,7 +33,7 @@ public class Model {
 		return misuraz.get(0).getDay();
 	}
 	
-	
+	//ritorna l'ultima misurazione effettuata
 	public LocalDate getUltimaMisurazione( River r) {
 		List<Flow> misuraz = idMap.get(r.getId()).getFlows();
 		return misuraz.get(misuraz.size()-1).getDay();
@@ -51,8 +51,11 @@ public class Model {
 			media += f.getFlow();
 		}
 		media = media / misuraz.size();
+		r.setFlowAvg(media);
 		return media;
 	}
+	
+	
 	
 	
 	
